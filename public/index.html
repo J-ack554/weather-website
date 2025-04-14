@@ -1,18 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <style>
-        body { font-family: Arial; max-width: 500px; margin: 0 auto; padding: 20px; }
-        #weatherInfo { margin-top: 20px; padding: 15px; border: 1px solid #ddd; }
-        img { vertical-align: middle; }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1>Weather App</h1>
-    <input type="text" id="cityInput" placeholder="Enter city">
-    <button id="getWeather">Get Weather</button>
-    <div id="weatherInfo"></div>
+    <div class="app-container">
+        <div class="container">
+            <h1><i class="fas fa-cloud-sun"></i> Weather App</h1>
+            
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Enter city name...">
+                <button id="getWeather"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="weather-card hidden" id="weatherCard">
+                <div class="location">
+                    <h2 id="cityName">City Name</h2>
+                    <span id="date">Current Date</span>
+                </div>
+
+                <div class="weather-main">
+                    <img id="weatherIcon" src="" alt="Weather Icon">
+                    <div id="temperature">--°C</div>
+                </div>
+
+                <div class="description" id="weatherDescription">Weather Description</div>
+
+                <div class="details">
+                    <div>
+                        <i class="fas fa-thermometer-half"></i>
+                        <span>Feels like: <span id="feelsLike">--°C</span></span>
+                    </div>
+                    <div>
+                        <i class="fas fa-tint"></i>
+                        <span>Humidity: <span id="humidity">--%</span></span>
+                    </div>
+                    <div>
+                        <i class="fas fa-wind"></i>
+                        <span>Wind: <span id="wind">-- m/s</span></span>
+                    </div>
+                    <div>
+                        <i class="fas fa-compass"></i>
+                        <span>Pressure: <span id="pressure">-- hPa</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error hidden" id="errorMessage"></div>
+        </div>
+
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <h2><i class="fas fa-robot"></i> Weather Assistant</h2>
+                <button id="minimizeChat"><i class="fas fa-minus"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="message-content">
+                        Hello! I'm your weather assistant. Ask me anything about weather or forecasts!
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
